@@ -1,8 +1,6 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Que manger aujourd'hui ?</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,8 +11,12 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid *ngIf="meals">
+    <ion-row>
+      <ion-col [routerLink]="'/meal/' + meal.idMeal" *ngFor="let meal of meals" size="6">
+<!--        <img [src]="meal.strMealThumb" [alt]="meal.strMeal">-->
+        <ion-img [src]="meal.strMealThumb"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
